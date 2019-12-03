@@ -1,0 +1,1 @@
+[{'ldap.forumsys.com': [{'server': [{'port': 389}]}, {'login': [{'bind_id': 'cn=read-only-admin,dc=example,dc=com'}, {'bind_pass': 'password'}]}]}]

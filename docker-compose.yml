@@ -1,0 +1,19 @@
+version: '3.7'
+services: 
+
+    sldap-server-mock:
+        image: thoteam/slapd-server-mock:latest
+        ports: 
+            - 389:389
+
+    ldapphpadmin:
+        image: osixia/phpldapadmin:0.9.0
+        ports: 
+            - 6443:443
+        environment: 
+            - "PHPLDAPADMIN_LDAP_HOSTS=#PYTHON2BASH:[{'sldap-server-mock': [{'server': [{'port': 389}]}, {'login': [{'bind_id': 'cn=admin,dc=ldapmock,dc=local'}, {'bind_pass': 'adminpass'}]}]}]"
+        depends_on: 
+            - sldap-server-mock
+
+            
+ #           - "PHPLDAPADMIN_LDAP_HOSTS=#PYTHON2BASH:[{'ldap.forumsys.com': [{'server': [{'port': 389}]}, {'login': [{'bind_id': 'cn=read-only-admin,dc=example,dc=com'}, {'bind_pass': 'password'}]}]}]"
