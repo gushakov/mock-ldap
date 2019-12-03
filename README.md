@@ -1,7 +1,8 @@
 Mock LDAP example
 ---
 
-Mock LDAP server and GUI based on 
+Docker compose starter for mock LDAP server and GUI based on:
+
     - https://github.com/docker-ThoTeam/slapd-server-mock
     - https://github.com/osixia/docker-phpLDAPadmin
 
